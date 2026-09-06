@@ -25,7 +25,8 @@ const mockGoogleAdsData = {
       clicks: 850,
       conversions: 45,
       cost: 4500,
-      conversion_value: 22500
+      conversion_value: 22500,
+      conversion_tracking: "ACTIVE"
     },
     {
       id: "2",
@@ -37,7 +38,8 @@ const mockGoogleAdsData = {
       clicks: 320,
       conversions: 12,
       cost: 2800,
-      conversion_value: 7200
+      conversion_value: 7200,
+      conversion_tracking: "WARNING"
     },
     {
       id: "3",
@@ -49,9 +51,38 @@ const mockGoogleAdsData = {
       clicks: 600,
       conversions: 78,
       cost: 9200,
-      conversion_value: 39000
+      conversion_value: 39000,
+      conversion_tracking: "ACTIVE"
     }
   ],
+  keywords: [
+    { keyword: "buy shoes online", match_type: "exact", impressions: 4200, clicks: 520, conversions: 45, cost: 2080, cpa: 46.22, status: "ENABLED", quality_score: 9 },
+    { keyword: "best running shoes", match_type: "phrase", impressions: 3100, clicks: 250, conversions: 28, cost: 1250, cpa: 44.64, status: "ENABLED", quality_score: 8 },
+    { keyword: "Nike shoes sale", match_type: "exact", impressions: 2800, clicks: 185, conversions: 15, cost: 925, cpa: 61.67, status: "ENABLED", quality_score: 7 },
+    { keyword: "cheap shoes free shipping", match_type: "broad", impressions: 2400, clicks: 120, conversions: 5, cost: 600, cpa: 120, status: "ENABLED", quality_score: 4 },
+    { keyword: "how to tie shoes", match_type: "broad", impressions: 1800, clicks: 45, conversions: 0, cost: 225, cpa: null, status: "PAUSED", quality_score: 2 }
+  ],
+  negative_keywords: [
+    { keyword: "free", estimated_savings: 450, monthly_wasted_clicks: 300, reason: "Users searching for free products not in market" },
+    { keyword: "used", estimated_savings: 280, monthly_wasted_clicks: 185, reason: "Used shoes not part of product line" },
+    { keyword: "children", estimated_savings: 320, monthly_wasted_clicks: 210, reason: "Only adult shoe sizes available" }
+  ],
+  suggested_negative_keywords: [
+    { keyword: "diy", reason: "DIY shoe making searches", estimated_impact: 150 },
+    { keyword: "history", reason: "Shoe history/trivia searches", estimated_impact: 95 },
+    { keyword: "repair", reason: "Shoe repair services not offered", estimated_impact: 200 }
+  ],
+  conversion_tracking_audit: {
+    total_campaigns: 3,
+    tracking_active: 2,
+    tracking_issues: 1,
+    quality_score: 85,
+    recommendations: [
+      "Display campaign missing conversion pixel - set up immediately",
+      "Update conversion values for 3 campaigns (currently using defaults)",
+      "Implement cross-device tracking to capture mobile conversions"
+    ]
+  },
   account_id: "1234567890",
   currency: "USD"
 };
@@ -223,27 +254,43 @@ function generateMockRecommendations(googleMetrics, metaMetrics) {
 2. **Increase Meta Conversion campaign budget** by 30% - ROAS is ${metaMetrics.total.roas.toFixed(2)}x (healthy)
 3. **Reallocate** $200/day from Display to Shopping campaigns
 
+## Keywords Audit & Optimization
+- **Add 3 suggested negative keywords** - Estimated savings: $545/month
+- **Pause low-quality keywords** (Quality Score < 5): "how to tie shoes", "cheap shoes free shipping"
+- **Increase bid on high-performers**: "buy shoes online" (QS: 9), "best running shoes" (QS: 8)
+- **Expected impact**: 10-15% CTR improvement, $500+ monthly savings
+
+## Conversion Tracking Issues ⚠️
+- **URGENT**: Display campaign missing conversion tracking pixel
+- Update conversion values for 3 campaigns (currently using defaults)
+- Implement cross-device tracking to capture mobile conversions
+- **Impact**: 20-30% underreporting of actual conversions
+
 ## Campaign Efficiency Issues
 - Google Display campaign has 450% higher CPA than Shopping
 - Meta Awareness campaign has 0.4% CTR (should be 1.2%+)
 - Recommend pausing low-performing ad sets in Meta
 
-## Predicted Impact of Changes
-- Budget reallocation could increase conversions by 15-20%
+## Predicted Impact of All Changes
+- Budget reallocation: +15-20% conversions
+- Keyword optimization: +$500-700/month savings
+- Fix conversion tracking: Gain accurate ROI measurement
 - Lower CPA by $15-25 per conversion
-- Expected revenue lift: $5,000-8,000/month
+- **Expected total revenue lift: $6,500-9,000/month**
 
-## Quick Wins
-1. Pause bottom 10% of keywords in Google Search (save $150/day)
-2. Increase bid on top 20% performing keywords (+5%)
-3. Add negative keywords (save $100/day on wasted clicks)
-4. Implement audience exclusions in Meta
+## Quick Wins (Do Today)
+1. ✅ Add 3 negative keywords (save $545/month)
+2. ✅ Pause bottom 10% of keywords (save $150/day)
+3. ✅ Fix conversion tracking in Display campaign
+4. ✅ Increase bid on top 20% performing keywords (+5%)
+5. ✅ Implement audience exclusions in Meta
 
 ## Long-term Improvements
 - Implement conversion value tracking across all platforms
 - Set up automated bidding (maximize conversion value)
 - Create lookalike audiences from best customers
-- A/B test ad copy and creative monthly`,
+- Monthly keyword quality score optimization
+- A/B test ad copy and creative bi-weekly`,
     generated_at: new Date().toISOString()
   };
 }

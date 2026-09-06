@@ -1,5 +1,6 @@
 import MetricCard from './MetricCard'
 import CampaignsTable from './CampaignsTable'
+import KeywordsAndTracking from './KeywordsAndTracking'
 
 export default function GoogleAdsDashboard({ googleData, loading }) {
   if (loading) {
@@ -81,6 +82,8 @@ export default function GoogleAdsDashboard({ googleData, loading }) {
           </ul>
         </div>
       </div>
+
+      <KeywordsAndTracking googleData={googleData} />
     </>
   )
 }
