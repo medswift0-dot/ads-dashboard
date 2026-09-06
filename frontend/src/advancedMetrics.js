@@ -93,7 +93,7 @@ export const audienceData = {
     { name: 'SMB Decision Makers', size: 12500, ctr: 6.1, convRate: 9.8, ltv: '$125k', cac: '$380' },
     { name: 'Enterprise Prospects', size: 3200, ctr: 4.5, convRate: 22.1, ltv: '$850k', cac: '$2100' },
     { name: 'Price Sensitive', size: 15600, ctr: 3.2, convRate: 4.1, ltv: '$35k', cac: '$120' },
-    { name: 'Competitors' Customers', size: 4100, ctr: 7.8, convRate: 18.5, ltv: '$195k', cac: '$280' }
+    { name: "Competitors' Customers", size: 4100, ctr: 7.8, convRate: 18.5, ltv: '$195k', cac: '$280' }
   ],
   devicePerformance: [
     { device: 'Desktop', sessions: 8245, convRate: 5.2, ctr: 6.1, roi: 4.2 },
