@@ -1,8 +1,5 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "devCommand": "vite",
-  "env": {
-    "VITE_API_URL": "@ads_dashboard_api_url"
-  }
+  "devCommand": "vite"
 }
