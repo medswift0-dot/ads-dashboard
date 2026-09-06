@@ -10,10 +10,13 @@ function App() {
   const [recommendations, setRecommendations] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [darkMode, setDarkMode] = useState(false)
 
-  // Fetch data on component mount
   useEffect(() => {
     fetchAllData()
+    const savedDarkMode = localStorage.getItem('darkMode') === 'true'
+    setDarkMode(savedDarkMode)
+    if (savedDarkMode) document.documentElement.setAttribute('data-theme', 'dark')
   }, [])
 
   const fetchAllData = async () => {
@@ -28,7 +31,6 @@ function App() {
       setGoogleData(googleRes.data.data)
       setMetaData(metaRes.data.data)
 
-      // Get AI recommendations
       const analysisRes = await axios.post('/api/analyze', {
         googleAdsData: googleRes.data.data,
         metaAdsData: metaRes.data.data
@@ -43,76 +45,94 @@ function App() {
     }
   }
 
+  const toggleDarkMode = () => {
+    const newDarkMode = !darkMode
+    setDarkMode(newDarkMode)
+    localStorage.setItem('darkMode', newDarkMode)
+    if (newDarkMode) {
+      document.documentElement.setAttribute('data-theme', 'dark')
+    } else {
+      document.documentElement.removeAttribute('data-theme')
+    }
+  }
+
+  const navItems = [
+    { id: 'overview', label: '📈 Overview', icon: '📈' },
+    { id: 'google', label: '🔍 Google Ads', icon: '🔍' },
+    { id: 'meta', label: '📘 Meta Ads', icon: '📘' },
+    { id: 'trends', label: '🌍 Market Trends', icon: '🌍' },
+    { id: 'recommendations', label: '🤖 AI Recommendations', icon: '🤖' }
+  ]
+
   return (
-    <div className="app">
-      <div className="container">
-        <div className="header">
-          <h1>📊 Ads Audit Dashboard</h1>
-          <p>Real-time Google Ads & Meta Ads Performance Analysis with AI Recommendations</p>
+    <div className={`app ${darkMode ? 'dark' : 'light'}`}>
+      <aside className="sidebar">
+        <div className="sidebar-header">
+          <h2>📊 AdsAI</h2>
+          <p>Dashboard</p>
         </div>
 
-        {error && (
-          <div className="error">
-            ⚠️ {error} - Using mock data for demonstration
-          </div>
-        )}
+        <nav className="sidebar-nav">
+          {navItems.map(item => (
+            <button
+              key={item.id}
+              className={`nav-item ${activeTab === item.id ? 'active' : ''}`}
+              onClick={() => setActiveTab(item.id)}
+            >
+              <span className="nav-icon">{item.icon}</span>
+              <span className="nav-label">{item.label}</span>
+            </button>
+          ))}
+        </nav>
 
-        <div className="tabs">
+        <div className="sidebar-footer">
           <button
-            className={`tab-btn ${activeTab === 'overview' ? 'active' : ''}`}
-            onClick={() => setActiveTab('overview')}
+            className="theme-toggle"
+            onClick={toggleDarkMode}
+            title={darkMode ? 'Light mode' : 'Dark mode'}
           >
-            📈 Overview
+            {darkMode ? '☀️' : '🌙'}
           </button>
           <button
-            className={`tab-btn ${activeTab === 'google' ? 'active' : ''}`}
-            onClick={() => setActiveTab('google')}
-          >
-            🔍 Google Ads
-          </button>
-          <button
-            className={`tab-btn ${activeTab === 'meta' ? 'active' : ''}`}
-            onClick={() => setActiveTab('meta')}
-          >
-            📘 Meta Ads
-          </button>
-          <button
-            className={`tab-btn ${activeTab === 'trends' ? 'active' : ''}`}
-            onClick={() => setActiveTab('trends')}
-          >
-            🌍 Market Trends
-          </button>
-          <button
-            className={`tab-btn ${activeTab === 'recommendations' ? 'active' : ''}`}
-            onClick={() => setActiveTab('recommendations')}
-          >
-            🤖 AI Recommendations
-          </button>
-          <button
-            className="tab-btn refresh-btn"
+            className="refresh-btn-sidebar"
             onClick={fetchAllData}
             disabled={loading}
             title="Refresh data"
           >
-            {loading ? '⟳ Refreshing...' : '⟳ Refresh'}
+            {loading ? '⟳' : '⟳'}
           </button>
         </div>
+      </aside>
 
-        {loading && activeTab === 'overview' ? (
-          <div className="loading">
-            <div className="spinner"></div>
-            Loading dashboard data...
+      <main className="main-content">
+        <div className="top-bar">
+          <h1>Ads Audit Dashboard</h1>
+          <p>Real-time Google Ads & Meta Ads Performance Analysis with AI Recommendations</p>
+        </div>
+
+        {error && (
+          <div className="error-banner">
+            ⚠️ {error} - Using mock data for demonstration
           </div>
-        ) : (
-          <Dashboard
-            activeTab={activeTab}
-            googleData={googleData}
-            metaData={metaData}
-            recommendations={recommendations}
-            loading={loading}
-          />
         )}
-      </div>
+
+        <div className="content-wrapper">
+          {loading && activeTab === 'overview' ? (
+            <div className="loading">
+              <div className="spinner"></div>
+              Loading dashboard data...
+            </div>
+          ) : (
+            <Dashboard
+              activeTab={activeTab}
+              googleData={googleData}
+              metaData={metaData}
+              recommendations={recommendations}
+              loading={loading}
+            />
+          )}
+        </div>
+      </main>
     </div>
   )
 }
