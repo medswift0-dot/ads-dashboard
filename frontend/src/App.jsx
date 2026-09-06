@@ -3,6 +3,7 @@ import axios from 'axios'
 import Dashboard from './components/Dashboard'
 import { mockGoogleData, mockMetaData } from './mockData'
 import './App.css'
+import './components/styles.css'
 
 function App() {
   const [activeTab, setActiveTab] = useState('overview')

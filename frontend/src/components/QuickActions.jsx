@@ -7,47 +7,52 @@ export default function QuickActions({ googleData, metaData }) {
     {
       id: 1,
       priority: 'HIGH',
-      title: 'Pause Underperforming Display Campaign',
-      description: 'Display ads have 1.2x ROI (lowest). Pause to save $2,000/month',
-      impact: 'Save $2,000/month',
-      button: 'Pause Campaign',
-      color: '#ef4444'
+      emoji: '⏹️',
+      title: 'Pause Underperforming Campaign',
+      description: 'Display ads have lowest ROI. Save $2,000/month immediately.',
+      impact: 'Save $2,000/mo',
+      button: 'Pause Now',
+      gradient: 'linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)'
     },
     {
       id: 2,
       priority: 'HIGH',
-      title: 'Increase Google Shopping Budget by 40%',
-      description: 'Your best performer (3.8x ROI). Shift budget from Display.',
-      impact: 'Potential +$145k revenue',
-      button: 'Increase Budget',
-      color: '#10b981'
+      emoji: '📈',
+      title: 'Increase Best Performer Budget',
+      description: 'Google Shopping has 3.8x ROI. Allocate more budget there.',
+      impact: '+$145k potential',
+      button: 'Increase',
+      gradient: 'linear-gradient(135deg, #51cf66 0%, #37b24d 100%)'
     },
     {
       id: 3,
       priority: 'MEDIUM',
-      title: 'Review Lead Quality Form',
-      description: 'Form abandonment at 78%. Too many fields? Simplify it.',
-      impact: 'Could add ~500 leads/month',
+      emoji: '📋',
+      title: 'Simplify Lead Form',
+      description: 'Form abandonment at 78%. Reduce fields to improve conversion.',
+      impact: '+500 leads/mo',
       button: 'Review Form',
-      color: '#f59e0b'
+      gradient: 'linear-gradient(135deg, #ffa94d 0%, #ff922b 100%)'
     },
     {
       id: 4,
       priority: 'MEDIUM',
-      title: 'Add 12 Negative Keywords',
-      description: 'Wasting budget on non-relevant searches: "free", "cheap", etc.',
-      impact: 'Save ~$800/month',
+      emoji: '🚫',
+      title: 'Block Wasted Keywords',
+      description: 'Add negative keywords: "free", "cheap". Stop irrelevant clicks.',
+      impact: 'Save $800/mo',
       button: 'Add Keywords',
-      color: '#f59e0b'
+      gradient: 'linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%)'
     },
     {
       id: 5,
       priority: 'LOW',
-      title: 'Scale Winning A/B Test Variant',
-      description: 'Ad copy test: Variant has +36.6% lift. Scale by 150%.',
-      impact: '+$45k revenue potential',
-      button: 'Scale Variant',
-      color: '#667eea'
+      emoji: '🚀',
+      title: 'Scale Winning Variant',
+      description: 'A/B test winner has +36.6% lift. Scale by 150%.',
+      impact: '+$45k potential',
+      button: 'Scale It',
+      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
     }
   ]
 
@@ -56,50 +61,58 @@ export default function QuickActions({ googleData, metaData }) {
       ...prev,
       [actionId]: 'completed'
     }))
-    console.log(`Action ${actionId} executed`)
   }
 
   return (
     <div className="quick-actions-container">
       <div className="actions-header">
-        <h2>🎯 Your Action Plan for Today</h2>
-        <p>5 high-impact changes based on your campaign data</p>
+        <div>
+          <h2>🎯 Action Plan</h2>
+          <p>Top 5 changes to boost your performance today</p>
+        </div>
+        <div className="actions-status">
+          <span className="completed-count">{Object.keys(actionStates).length} / 5 Complete</span>
+        </div>
       </div>
 
       <div className="actions-grid">
         {actions.map((action, idx) => (
-          <div key={action.id} className={`action-card priority-${action.priority.toLowerCase()}`}>
-            <div className="action-header">
-              <span className={`priority-badge ${action.priority.toLowerCase()}`}>
-                {action.priority}
-              </span>
-              <span className="action-number">#{idx + 1}</span>
-            </div>
+          <div
+            key={action.id}
+            className={`action-card ${actionStates[action.id] === 'completed' ? 'completed' : ''}`}
+            style={{ background: action.gradient }}
+          >
+            <div className="action-priority-label">{action.priority}</div>
+            <div className="action-emoji">{action.emoji}</div>
 
-            <h3>{action.title}</h3>
+            <h3 className="action-title">{action.title}</h3>
             <p className="action-description">{action.description}</p>
 
-            <div className="action-impact">
-              <span className="impact-icon">⚡</span>
-              <span className="impact-text">{action.impact}</span>
+            <div className="action-footer">
+              <div className="impact-badge">
+                <span className="impact-value">{action.impact}</span>
+              </div>
+              <button
+                className={`action-btn ${actionStates[action.id] === 'completed' ? 'done' : ''}`}
+                onClick={() => handleAction(action.id)}
+              >
+                {actionStates[action.id] === 'completed' ? '✓' : action.button}
+              </button>
             </div>
-
-            <button
-              className={`action-button ${actionStates[action.id] === 'completed' ? 'completed' : ''}`}
-              onClick={() => handleAction(action.id)}
-              style={{ borderLeftColor: action.color }}
-            >
-              {actionStates[action.id] === 'completed' ? '✓ Done' : action.button}
-            </button>
           </div>
         ))}
       </div>
 
-      <div className="bulk-action">
-        <button className="bulk-button">
-          ⚡ Implement All Quick Wins (5 actions)
-        </button>
-        <p>Execute all recommended changes in one click</p>
+      <div className="bulk-action-section">
+        <div className="bulk-card">
+          <div className="bulk-content">
+            <h3>⚡ Quick Win Mode</h3>
+            <p>Execute all 5 recommendations instantly</p>
+          </div>
+          <button className="bulk-button">
+            Apply All Now
+          </button>
+        </div>
       </div>
     </div>
   )
