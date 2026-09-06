@@ -1118,3 +1118,350 @@ html, body {
   color: var(--success);
   margin-top: 12px;
 }
+
+/* ===== SIMPLIFIED METRICS ===== */
+.simplified-metrics {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-md);
+}
+
+.metrics-header {
+  margin-bottom: 30px;
+}
+
+.metrics-header h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.metrics-header p {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.metrics-grid-simple {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.metric-card-simple {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  border-top: 4px solid var(--primary);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.metric-card-simple:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.metric-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.metric-top h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-light);
+  flex: 1;
+}
+
+.info-icon {
+  width: 24px;
+  height: 24px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: help;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.metric-value-large {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.metric-trend {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+
+.metric-explanation {
+  background: var(--surface);
+  border-left: 3px solid var(--primary);
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--text-light);
+  display: flex;
+  gap: 8px;
+}
+
+.explain-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.metrics-legend {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ===== QUICK ACTIONS ===== */
+.quick-actions-container {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-md);
+}
+
+.actions-header {
+  margin-bottom: 30px;
+}
+
+.actions-header h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.actions-header p {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.action-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  border-left: 5px solid var(--warning);
+  transition: all 0.2s;
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.action-card.priority-high {
+  border-left-color: var(--danger);
+}
+
+.action-card.priority-medium {
+  border-left-color: var(--warning);
+}
+
+.action-card.priority-low {
+  border-left-color: var(--primary);
+}
+
+.action-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.priority-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.priority-badge.high {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.priority-badge.medium {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.priority-badge.low {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+[data-theme="dark"] .priority-badge.high {
+  background: #7f1d1d;
+  color: #fca5a5;
+}
+
+[data-theme="dark"] .priority-badge.medium {
+  background: #78350f;
+  color: #fcd34d;
+}
+
+[data-theme="dark"] .priority-badge.low {
+  background: #0c2340;
+  color: #93c5fd;
+}
+
+.action-number {
+  font-size: 12px;
+  color: var(--text-light);
+  background: var(--surface);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.action-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.action-description {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.action-impact {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.impact-icon {
+  font-size: 16px;
+}
+
+.action-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-button:hover {
+  opacity: 0.9;
+  transform: scale(1.01);
+}
+
+.action-button.completed {
+  background: var(--success);
+}
+
+.bulk-action {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.bulk-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 12px;
+}
+
+.bulk-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: white;
+  transform: scale(1.02);
+}
+
+.bulk-action p {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .actions-grid,
+  .metrics-grid-simple,
+  .metrics-legend {
+    grid-template-columns: 1fr;
+  }
+
+  .simplified-metrics,
+  .quick-actions-container {
+    padding: 20px;
+  }
+
+  .metric-value-large {
+    font-size: 24px;
+  }
+
+  .actions-header h2,
+  .metrics-header h2 {
+    font-size: 20px;
+  }
+}

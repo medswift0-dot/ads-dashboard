@@ -1,5 +1,7 @@
 import MetricCard from './MetricCard'
 import CampaignsTable from './CampaignsTable'
+import SimplifiedMetrics from './SimplifiedMetrics'
+import QuickActions from './QuickActions'
 
 export default function Overview({ googleData, metaData, loading }) {
   if (loading) {
@@ -20,6 +22,17 @@ export default function Overview({ googleData, metaData, loading }) {
 
   return (
     <>
+      <SimplifiedMetrics googleData={googleData} metaData={metaData} />
+
+      <QuickActions googleData={googleData} metaData={metaData} />
+
+      <div style={{ marginTop: '40px' }}>
+        <h2>📋 Detailed Campaign Breakdown</h2>
+        <p style={{ color: 'var(--text-secondary)', marginBottom: '20px' }}>
+          For more detailed metrics and analysis, check the Google Ads and Meta Ads tabs
+        </p>
+      </div>
+
       <div className="metrics-grid">
         <MetricCard
           label="Total Spend"
