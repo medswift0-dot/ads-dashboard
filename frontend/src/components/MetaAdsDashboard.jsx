@@ -44,7 +44,7 @@ export default function MetaAdsDashboard({ metaData, loading }) {
         <div className="chart-container" style={{ background: '#fee2e2', borderLeft: '4px solid #ef4444' }}>
           <h3 className="chart-title">⚠️ Performance Alerts</h3>
           <ul style={{ marginLeft: '20px', lineHeight: '1.8' }}>
-            <li><strong>{inefficientCount} campaigns</strong> have CPA > $100</li>
+            <li><strong>{inefficientCount} campaigns</strong> have CPA &gt; $100</li>
             <li>Awareness campaigns should focus on CTR and reach, not conversions</li>
             <li>Consider using conversion value optimization for better ROAS</li>
           </ul>
@@ -61,7 +61,7 @@ export default function MetaAdsDashboard({ metaData, loading }) {
         <div className="recommendation-content">
           <h4>Audience & Targeting</h4>
           <ul>
-            <li>Create lookalike audiences from your best customers (LTV > $500)</li>
+            <li>Create lookalike audiences from your best customers (LTV &gt; $500)</li>
             <li>Implement audience exclusions to prevent targeting existing customers in acquisition campaigns</li>
             <li>Test narrow interest targeting vs. broad targeting with value optimization</li>
           </ul>

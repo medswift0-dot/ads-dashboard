@@ -151,7 +151,7 @@ export default function KeywordsAndTracking({ googleData }) {
             <li>✅ Add 3 suggested negative keywords (saves ~$545/month)</li>
             <li>✅ Increase bid on high-quality keywords by 10%</li>
             <li>✅ Fix conversion tracking in Display campaign</li>
-            <li>✅ Pause low-quality keywords (Quality Score < 5)</li>
+            <li>✅ Pause low-quality keywords (Quality Score &lt; 5)</li>
           </ul>
 
           <h4>Expected Impact</h4>

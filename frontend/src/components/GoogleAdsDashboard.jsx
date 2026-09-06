@@ -45,7 +45,7 @@ export default function GoogleAdsDashboard({ googleData, loading }) {
         <div className="chart-container" style={{ background: '#fee2e2', borderLeft: '4px solid #ef4444' }}>
           <h3 className="chart-title">⚠️ Performance Alerts</h3>
           <ul style={{ marginLeft: '20px', lineHeight: '1.8' }}>
-            <li><strong>{inefficientCount} campaigns</strong> have CPA > $100 (consider optimizing or pausing)</li>
+            <li><strong>{inefficientCount} campaigns</strong> have CPA &gt; $100 (consider optimizing or pausing)</li>
             <li>Campaigns with low CTR may need ad copy refresh or audience adjustments</li>
             <li>Review search terms and add negative keywords to reduce wasted spend</li>
           </ul>
@@ -78,7 +78,7 @@ export default function GoogleAdsDashboard({ googleData, loading }) {
           <ul>
             <li>Add negative keywords (save ~15% of budget on irrelevant clicks)</li>
             <li>Increase bids on top 10% converting keywords by 10-15%</li>
-            <li>Pause keywords with CTR < 0.5% and CPA > 2x target</li>
+            <li>Pause keywords with CTR &lt; 0.5% and CPA &gt; 2x target</li>
           </ul>
         </div>
       </div>
