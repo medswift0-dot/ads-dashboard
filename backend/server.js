@@ -83,6 +83,82 @@ const mockGoogleAdsData = {
       "Implement cross-device tracking to capture mobile conversions"
     ]
   },
+  market_trends: {
+    seasonal_data: [
+      { month: "Jan", avg_cpc: 1.25, search_volume_index: 65, avg_cpa: 45, conversions: 35 },
+      { month: "Feb", avg_cpc: 1.28, search_volume_index: 68, avg_cpa: 44, conversions: 38 },
+      { month: "Mar", avg_cpc: 1.32, search_volume_index: 72, avg_cpa: 42, conversions: 42 },
+      { month: "Apr", avg_cpc: 1.35, search_volume_index: 78, avg_cpa: 40, conversions: 48 },
+      { month: "May", avg_cpc: 1.42, search_volume_index: 85, avg_cpa: 38, conversions: 55 },
+      { month: "Jun", avg_cpc: 1.48, search_volume_index: 92, avg_cpa: 35, conversions: 62 },
+      { month: "Jul", avg_cpc: 1.52, search_volume_index: 95, avg_cpa: 34, conversions: 68 },
+      { month: "Aug", avg_cpc: 1.50, search_volume_index: 93, avg_cpa: 36, conversions: 65 },
+      { month: "Sep", avg_cpc: 1.45, search_volume_index: 88, avg_cpa: 38, conversions: 60 },
+      { month: "Oct", avg_cpc: 1.38, search_volume_index: 82, avg_cpa: 40, conversions: 52 },
+      { month: "Nov", avg_cpc: 1.55, search_volume_index: 110, avg_cpa: 32, conversions: 88 },
+      { month: "Dec", avg_cpc: 1.65, search_volume_index: 120, avg_cpa: 30, conversions: 98 }
+    ],
+    industry_benchmarks: {
+      your_roas: 4.07,
+      industry_avg_roas: 3.2,
+      top_performers_roas: 5.5,
+      your_cpa: 128.07,
+      industry_avg_cpa: 156,
+      top_performers_cpa: 85,
+      your_ctr: 5.15,
+      industry_avg_ctr: 3.8,
+      your_quality_score: 7.2,
+      industry_avg_quality_score: 6.5
+    },
+    trending_keywords: [
+      { keyword: "sustainable shoes", trend: "up", volume_change: "+45%", search_volume: 12400, avg_cpc: 1.85, recommended_action: "INCREASE_BID", opportunity: "high" },
+      { keyword: "eco-friendly footwear", trend: "up", volume_change: "+38%", search_volume: 8900, avg_cpc: 2.10, recommended_action: "NEW_CAMPAIGN", opportunity: "high" },
+      { keyword: "shoe size chart", trend: "stable", volume_change: "-5%", search_volume: 5600, avg_cpc: 0.65, recommended_action: "MONITOR", opportunity: "medium" },
+      { keyword: "athletic shoes women", trend: "up", volume_change: "+22%", search_volume: 18900, avg_cpc: 1.45, recommended_action: "INCREASE_BUDGET", opportunity: "high" },
+      { keyword: "vintage shoes", trend: "down", volume_change: "-28%", search_volume: 3200, avg_cpc: 1.20, recommended_action: "REDUCE_BID", opportunity: "low" }
+    ],
+    declining_keywords: [
+      { keyword: "cheap shoes online", trend: "down", volume_change: "-35%", reason: "Oversaturated market, many competitors", recommended_action: "PAUSE" },
+      { keyword: "shoes discount code", trend: "down", volume_change: "-42%", reason: "Seasonal decline post-holiday", recommended_action: "REDUCE_BID" },
+      { keyword: "shoe review", trend: "down", volume_change: "-18%", reason: "More reviews available, lower intent", recommended_action: "MONITOR" }
+    ],
+    market_opportunities: [
+      {
+        name: "Sustainability Trend (Q4 2025)",
+        potential_revenue: 15000,
+        timeline: "Immediate",
+        description: "65% YoY growth in eco-friendly searches",
+        recommendation: "Launch 'sustainable shoes' campaign with $5K budget",
+        investment: 5000,
+        expected_roi: 3.0
+      },
+      {
+        name: "Mobile-First Campaign",
+        potential_revenue: 8500,
+        timeline: "2 weeks",
+        description: "Mobile searches up 52%, but mobile ROAS down 15%",
+        recommendation: "Optimize mobile landing pages, increase mobile bid by 15%",
+        investment: 1500,
+        expected_roi: 5.67
+      },
+      {
+        name: "Seasonal Peak Prep (Nov-Dec)",
+        potential_revenue: 25000,
+        timeline: "6 weeks",
+        description: "Holiday season keywords surge 110%+ in volume",
+        recommendation: "Increase budget 80% starting Oct 1, 120% in Nov-Dec",
+        investment: 12000,
+        expected_roi: 2.08
+      }
+    ],
+    price_trends: {
+      avg_cpc_trend: "up_12_percent",
+      avg_cpc_forecast: "Expect +8-12% increase in Q4 due to seasonal demand",
+      cpa_trend: "down_8_percent",
+      cpa_forecast: "Favorable - CTR improvements offsetting CPC increases",
+      roas_forecast: "Positive - Expected 12-15% ROAS improvement in Q4"
+    }
+  },
   account_id: "1234567890",
   currency: "USD"
 };

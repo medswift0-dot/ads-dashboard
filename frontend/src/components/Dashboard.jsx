@@ -2,6 +2,7 @@ import Overview from './Overview'
 import GoogleAdsDashboard from './GoogleAdsDashboard'
 import MetaAdsDashboard from './MetaAdsDashboard'
 import RecommendationsDashboard from './RecommendationsDashboard'
+import MarketTrendsDashboard from './MarketTrendsDashboard'
 
 export default function Dashboard({ activeTab, googleData, metaData, recommendations, loading }) {
   return (
@@ -14,6 +15,9 @@ export default function Dashboard({ activeTab, googleData, metaData, recommendat
       )}
       {activeTab === 'meta' && (
         <MetaAdsDashboard metaData={metaData} loading={loading} />
+      )}
+      {activeTab === 'trends' && (
+        <MarketTrendsDashboard googleData={googleData} loading={loading} />
       )}
       {activeTab === 'recommendations' && (
         <RecommendationsDashboard recommendations={recommendations} loading={loading} />

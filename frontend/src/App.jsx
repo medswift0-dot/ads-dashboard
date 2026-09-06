@@ -77,6 +77,12 @@ function App() {
             📘 Meta Ads
           </button>
           <button
+            className={`tab-btn ${activeTab === 'trends' ? 'active' : ''}`}
+            onClick={() => setActiveTab('trends')}
+          >
+            🌍 Market Trends
+          </button>
+          <button
             className={`tab-btn ${activeTab === 'recommendations' ? 'active' : ''}`}
             onClick={() => setActiveTab('recommendations')}
           >
