@@ -1,0 +1,13 @@
+.app {
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+.refresh-btn {
+  margin-left: auto;
+}
+
+.refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
