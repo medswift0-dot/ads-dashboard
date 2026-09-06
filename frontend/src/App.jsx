@@ -65,13 +65,13 @@ function App() {
   }
 
   const navItems = [
-    { id: 'overview', label: '📈 Overview', icon: '📈' },
-    { id: 'google', label: '🔍 Google Ads', icon: '🔍' },
-    { id: 'meta', label: '📘 Meta Ads', icon: '📘' },
-    { id: 'performance', label: '⚡ Performance Deep Dive', icon: '⚡' },
-    { id: 'advanced', label: '🚀 Advanced Analytics', icon: '🚀' },
-    { id: 'trends', label: '🌍 Market Trends', icon: '🌍' },
-    { id: 'recommendations', label: '🤖 AI Recommendations', icon: '🤖' }
+    { id: 'overview', label: 'Overview', icon: '📈' },
+    { id: 'google', label: 'Google Ads', icon: '🔍' },
+    { id: 'meta', label: 'Meta Ads', icon: '📘' },
+    { id: 'performance', label: 'Performance Deep Dive', icon: '⚡' },
+    { id: 'advanced', label: 'Advanced Analytics', icon: '🚀' },
+    { id: 'trends', label: 'Market Trends', icon: '🌍' },
+    { id: 'recommendations', label: 'AI Recommendations', icon: '🤖' }
   ]
 
   return (
