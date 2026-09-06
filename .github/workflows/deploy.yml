@@ -24,26 +24,11 @@ jobs:
         working-directory: ./frontend
         run: npm run build
 
-      - name: Install Vercel CLI
-        run: npm install -g vercel
-
-      - name: Create .vercel directory
-        working-directory: ./frontend
-        run: mkdir -p .vercel
-
-      - name: Create .vercel/project.json
-        working-directory: ./frontend
-        run: |
-          cat > .vercel/project.json << 'EOF'
-          {
-            "orgId": "${{ secrets.VERCEL_ORG_ID }}",
-            "projectId": "${{ secrets.VERCEL_PROJECT_ID }}"
-          }
-          EOF
-
       - name: Deploy to Vercel
-        working-directory: ./frontend
-        run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./frontend
+          production: true
