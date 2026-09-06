@@ -78,8 +78,8 @@ function App() {
     <div className={`app ${darkMode ? 'dark' : 'light'}`}>
       <aside className="sidebar">
         <div className="sidebar-header">
-          <h2>📊 AdsAI</h2>
-          <p>Dashboard</p>
+          <h2>🚀 Performance Hub</h2>
+          <p>Campaign Analytics</p>
         </div>
 
         <nav className="sidebar-nav">
@@ -116,8 +116,8 @@ function App() {
 
       <main className="main-content">
         <div className="top-bar">
-          <h1>Ads Audit Dashboard</h1>
-          <p>Real-time Google Ads & Meta Ads Performance Analysis with AI Recommendations</p>
+          <h1>Performance Hub</h1>
+          <p>Real-time Google Ads & Meta Ads Performance Analysis with AI-Powered Recommendations</p>
         </div>
 
         {error && (

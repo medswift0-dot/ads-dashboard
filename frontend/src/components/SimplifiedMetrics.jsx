@@ -49,7 +49,7 @@ export default function SimplifiedMetrics({ googleData, metaData }) {
 
       <div className="metrics-grid-simple">
         {metrics.map((metric, idx) => (
-          <div key={idx} className="metric-card-simple" style={{ background: metric.gradient }}>
+          <div key={idx} className="metric-card-simple">
             <div className="metric-icon-circle">{metric.icon}</div>
 
             <div className="metric-content">

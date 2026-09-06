@@ -80,7 +80,6 @@ export default function QuickActions({ googleData, metaData }) {
           <div
             key={action.id}
             className={`action-card ${actionStates[action.id] === 'completed' ? 'completed' : ''}`}
-            style={{ background: action.gradient }}
           >
             <div className="action-priority-label">{action.priority}</div>
             <div className="action-emoji">{action.emoji}</div>
