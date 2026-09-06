@@ -4,6 +4,7 @@ import MetaAdsDashboard from './MetaAdsDashboard'
 import RecommendationsDashboard from './RecommendationsDashboard'
 import MarketTrendsDashboard from './MarketTrendsDashboard'
 import PerformanceAnalysis from './PerformanceAnalysis'
+import AdvancedAnalytics from './AdvancedAnalytics'
 
 export default function Dashboard({ activeTab, googleData, metaData, recommendations, loading }) {
   return (
@@ -25,6 +26,9 @@ export default function Dashboard({ activeTab, googleData, metaData, recommendat
       )}
       {activeTab === 'performance' && (
         <PerformanceAnalysis googleData={googleData} metaData={metaData} />
+      )}
+      {activeTab === 'advanced' && (
+        <AdvancedAnalytics />
       )}
     </>
   )
