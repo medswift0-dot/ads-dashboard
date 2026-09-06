@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Dashboard from './components/Dashboard'
+import { mockGoogleData, mockMetaData } from './mockData'
 import './App.css'
 
 function App() {
@@ -38,8 +39,14 @@ function App() {
 
       setRecommendations(analysisRes.data.recommendations)
     } catch (err) {
-      setError(err.message || 'Failed to fetch data')
-      console.error('Fetch error:', err)
+      console.error('API error, using mock data:', err)
+      setGoogleData(mockGoogleData)
+      setMetaData(mockMetaData)
+      setRecommendations({
+        summary: 'Mock AI Analysis - Backend not connected',
+        insights: ['Campaign performance is above average', 'Consider optimizing low-performing keywords']
+      })
+      setError('Backend not connected - Using demo data')
     } finally {
       setLoading(false)
     }
