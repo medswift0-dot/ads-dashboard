@@ -5,14 +5,14 @@ export default function AdvancedAnalytics() {
   const [activeTab, setActiveTab] = useState('alerts')
 
   const tabs = [
-    { id: 'alerts', label: '🚨 Real-time Alerts', icon: '🚨' },
-    { id: 'funnel', label: '🛣️ Sales Funnel', icon: '🛣️' },
-    { id: 'leads', label: '📊 Lead Quality', icon: '📊' },
-    { id: 'attribution', label: '🔗 Attribution', icon: '🔗' },
-    { id: 'forecast', label: '🔮 Forecasting', icon: '🔮' },
-    { id: 'audience', label: '👥 Audience Segments', icon: '👥' },
-    { id: 'testing', label: '🧪 A/B Tests', icon: '🧪' },
-    { id: 'budget', label: '💰 Budget Optimization', icon: '💰' }
+    { id: 'alerts', label: 'Real-time Alerts', icon: '🚨' },
+    { id: 'funnel', label: 'Sales Funnel', icon: '🛣️' },
+    { id: 'leads', label: 'Lead Quality', icon: '📊' },
+    { id: 'attribution', label: 'Attribution', icon: '🔗' },
+    { id: 'forecast', label: 'Forecasting', icon: '🔮' },
+    { id: 'audience', label: 'Audience Segments', icon: '👥' },
+    { id: 'testing', label: 'A/B Tests', icon: '🧪' },
+    { id: 'budget', label: 'Budget Optimization', icon: '💰' }
   ]
 
   const renderAlerts = () => (

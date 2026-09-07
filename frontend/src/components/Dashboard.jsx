@@ -5,6 +5,10 @@ import RecommendationsDashboard from './RecommendationsDashboard'
 import MarketTrendsDashboard from './MarketTrendsDashboard'
 import PerformanceAnalysis from './PerformanceAnalysis'
 import AdvancedAnalytics from './AdvancedAnalytics'
+import GrowthStrategy from './GrowthStrategy'
+import StrategicPlan from './StrategicPlan'
+import AuditDashboard from './AuditDashboard'
+import AgentControlPanel from './AgentControlPanel'
 
 export default function Dashboard({ activeTab, googleData, metaData, recommendations, loading }) {
   return (
@@ -29,6 +33,18 @@ export default function Dashboard({ activeTab, googleData, metaData, recommendat
       )}
       {activeTab === 'advanced' && (
         <AdvancedAnalytics />
+      )}
+      {activeTab === 'growth' && (
+        <GrowthStrategy />
+      )}
+      {activeTab === 'strategic' && (
+        <StrategicPlan />
+      )}
+      {activeTab === 'audit' && (
+        <AuditDashboard />
+      )}
+      {activeTab === 'agents' && (
+        <AgentControlPanel />
       )}
     </>
   )

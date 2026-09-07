@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Dashboard from './components/Dashboard'
+import DateRangePicker from './components/DateRangePicker'
 import { mockGoogleData, mockMetaData } from './mockData'
 import './App.css'
 import './components/styles.css'
@@ -13,6 +14,7 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [darkMode, setDarkMode] = useState(false)
+  const [dateRange, setDateRange] = useState({ start: '', end: '' })
 
   useEffect(() => {
     fetchAllData()
@@ -64,12 +66,20 @@ function App() {
     }
   }
 
+  const handleDateChange = (startDate, endDate) => {
+    setDateRange({ start: startDate, end: endDate })
+  }
+
   const navItems = [
     { id: 'overview', label: 'Overview', icon: '📈' },
     { id: 'google', label: 'Google Ads', icon: '🔍' },
     { id: 'meta', label: 'Meta Ads', icon: '📘' },
     { id: 'performance', label: 'Performance Deep Dive', icon: '⚡' },
     { id: 'advanced', label: 'Advanced Analytics', icon: '🚀' },
+    { id: 'growth', label: 'Growth Strategy', icon: '💹' },
+    { id: 'strategic', label: 'Strategic Plan', icon: '📋' },
+    { id: 'audit', label: 'Audit Center', icon: '🔎' },
+    { id: 'agents', label: 'Agent Command', icon: '🤖' },
     { id: 'trends', label: 'Market Trends', icon: '🌍' },
     { id: 'recommendations', label: 'AI Recommendations', icon: '🤖' }
   ]
@@ -116,8 +126,11 @@ function App() {
 
       <main className="main-content">
         <div className="top-bar">
-          <h1>Performance Hub</h1>
-          <p>Real-time Google Ads & Meta Ads Performance Analysis with AI-Powered Recommendations</p>
+          <div>
+            <h1>Performance Hub</h1>
+            <p>Real-time Google Ads & Meta Ads Performance Analysis with AI-Powered Recommendations</p>
+          </div>
+          <DateRangePicker onDateChange={handleDateChange} />
         </div>
 
         {error && (
